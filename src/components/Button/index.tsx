@@ -13,7 +13,7 @@ const Button = ({
   size = 'medium',
   fullWidth = false,
   icon,
-  props,
+  ...props
 }: ButtonProps) => (
   <S.Wrapper size={size} fullWidth={fullWidth} hasIcon={!!icon} {...props}>
     {!!icon && icon}
