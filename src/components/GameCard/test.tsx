@@ -76,4 +76,26 @@ describe('<GameCard />', () => {
     fireEvent.click(screen.getAllByRole('button')[0]);
     expect(onFav).toBeCalled();
   });
+
+  it('should render a gamecard with ribbon', () => {
+    renderWithTheme(
+      <GameCard
+        {...props}
+        ribbon="My Ribbon"
+        ribbonSize="normal"
+        ribbonColor="primary"
+      />
+    );
+
+    const ribbon = screen.getByText(/my ribbon/i);
+    expect(ribbon).toBeInTheDocument();
+    expect(ribbon).toHaveStyle({
+      fontSize: '1.4rem',
+      height: '3.6rem',
+    });
+
+    expect(ribbon).toHaveStyle({
+      backgroundColor: '#F231A5',
+    });
+  });
 });
